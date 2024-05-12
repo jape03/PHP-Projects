@@ -1,3 +1,50 @@
+<?php
+
+// Header
+$name = "John Paul Besagas";
+$title = "Software Engineer";
+$email = "202210802@fit.edu.ph";
+$phone = "09611974099";
+$address = "Montalban, Rizal 1860";
+
+// Personal Details
+$date_of_birth = "April 3, 2004";
+$place_of_birth = "Jagna, Bohol";
+$gender = "Male";
+$nationality = "Filipino";
+$civil_status = "Single";
+$website_url = "johnpaulbesagas.me";
+
+// Profile 
+$profile_description = "I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and am dedicated to continual learning and staying current with industry practices.";
+
+// Education
+$education_degree = "Bachelor of Science in Computer Science with Specialization in Software Engineering";
+$education_institution = "FEU Institute of Technology, Manila";
+
+// Employment 
+$job1_title = "Software Developer";
+$job1_description = "ABC Inc. Manila";
+$job2_title = "Software Engineer";
+$job2_description = "XYZ Enterprise. Manila";
+
+// Skills 
+$critical_thinking = 95;
+$project_management = 75;
+$leadership = 80;
+$problem_solving = 95;
+
+// Certificates
+$certificates = [
+    "Linux Professional Institute Certification",
+    "Python Institute Certifications",
+    "Microsoft Technology Associate"
+];
+
+// Programming Languages
+$languages = ["C++", "Java", "Python", "PHP", "HTML", "CSS"];
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -159,11 +206,22 @@
         justify-content: space-between;
     }
 
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
     .logo {
-        width: 16px;
-        height: 16px;
-        margin-right: 10px;
-      
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    .info {
+        display: flex;
+        align-items: center; 
     }
 
     .language_container {
@@ -178,20 +236,20 @@
 <body>
     <div class="resume">
         <div class="header">
-            <div class="info" name="name">John Paul Besagas</div>
-            <div class="info" name="title">Software Engineer</div>
+            <div class="info" name="name"><?php echo $name; ?></div>
+            <div class="info" name="title"><?php echo $title; ?></div>
             <div class="contact">
                 <div class="contact-item">
                     <img class="logo" name="email_pic" src="email.png">
-                    <span class="info" name="email">202210802@fit.edu.ph</span>
+                    <span class="info" name="email"><?php echo $email; ?></span>
                 </div>
                 <div class="contact-item">
                     <img class="logo" name="phone_pic" src="phone.png">
-                    <span class="info" name="phone">09611974099</span>
+                    <span class="info" name="phone"><?php echo $phone; ?></span>
                 </div>
                 <div class="contact-item">
                     <img class="logo" name="loc_pic" src="loc.png">
-                    <span class="info" name="address">Montalban, Rizal 1860</span>
+                    <span class="info" name="address"><?php echo $address; ?></span>
                 </div>
             </div>
         </div>
@@ -199,35 +257,30 @@
             <div class="left_section">
                 <section class="profile">
                     <h3>Profile</h3>
-                    <p>I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and am dedicated to continual learning and staying current with industry practices.</p>
+                    <p><?php echo $profile_description; ?></p>
                 </section>
                 <section class="education">
                     <h3>Education</h3>
                     <div>
-                        <span class="degree">Bachelor of Science in Computer Science with Specialization in Software Engineering</span>
+                        <span class="degree"><?php echo $education_degree; ?></span>
                     </div>
-                    <div class="institution">FEU Institute of Technology, Manila</div>
+                    <div class="institution"><?php echo $education_institution; ?></div>
                 </section>
                 <section class="employment">
                     <h3>Employment</h3>
                     <div>
-                        <div class="job1">Software Developer</div>
-                        <div class="job1_descrip">ABC Inc. Manila</div>
-                        <div class="job2">Software Engineer</div>
-                        <div class="job2_descrip">XYZ Enterprise. Manila</div>
+                        <div class="job1"><?php echo $job1_title; ?></div>
+                        <div class="job1_descrip"><?php echo $job1_description; ?></div>
+                        <div class="job2"><?php echo $job2_title; ?></div>
+                        <div class="job2_descrip"><?php echo $job2_description; ?></div>
                     </div>
-                </section>
-                <section class="internship">
-                    <h3>Internship</h3>
-                    <p>Trainee Developer</p>
-                    <p>Junior Developer</p>
                 </section>
                 <section class="certificate">
                     <h3>Certificates</h3>
                     <ul>
-                        <li>Linux Professional Institute Certification</li>
-                        <li>Python Institute Certifications</d>
-                        <li>Microsoft Technology Associate</li>
+                        <?php foreach ($certificates as $certificate) : ?>
+                            <li><?php echo $certificate; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </section>
             </div>
@@ -237,17 +290,17 @@
                     <div>
                         <h3>Personal Details</h3>
                         <div class="personal_info">Date of Birth</div>
-                        <div class="infox">April 3, 2004</div>
+                        <div class="infox"><?php echo $date_of_birth; ?></div>
                         <div class="personal_info">Place of Birth</div>
-                        <div class="infox">Jagna, Bohol</div>
+                        <div class="infox"><?php echo $place_of_birth; ?></div>
                         <div class="personal_info">Gender</div>
-                        <div class="infox">Male</div>
+                        <div class="infox"><?php echo $gender; ?></div>
                         <div class="personal_info">Nationality</div>
-                        <div class="infox">Filipino</div>
+                        <div class="infox"><?php echo $nationality; ?></div>
                         <div class="personal_info">Civil Status</div>
-                        <div class="infox">Single</div>
+                        <div class="infox"><?php echo $civil_status; ?></div>
                         <div class="personal_info">Website</div>
-                        <div class="infox"><a href="johnpaulbesagas.me">johnpaulbesagas.me</a></div>
+                        <div class="infox"><a href=><?php echo $website_url; ?></a></div>
                     </div>
                 </section>
                 <section class="skills_details">
@@ -255,19 +308,19 @@
                         <h3>Skills</h3>
                         <div>Critical Thinking</div>
                         <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 95%;"></div>
+                            <div class="progress_bar_fill" style="width: <?php echo $critical_thinking; ?>%;"></div>
                         </div>
                         <div>Project Management</div>
                         <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 75%;"></div>
+                            <div class="progress_bar_fill" style="width: <?php echo $project_management; ?>%;"></div>
                         </div>
                         <div>Leadership</div>
                         <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
+                            <div class="progress_bar_fill" style="width: <?php echo $leadership; ?>%;"></div>
                         </div>
                         <div>Problem Solving</div>
                         <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 95%;"></div>
+                            <div class="progress_bar_fill" style="width: <?php echo $problem_solving; ?>%;"></div>
                         </div>
                     </div>
                 </section>
@@ -276,16 +329,16 @@
                     <div class="language_container">
                         <div class="column">
                             <ul>
-                                <li>C++</li>
-                                <li>Java</li>
-                                <li>Python</li>
+                                <?php foreach (array_slice($languages, 0, 3) as $language) : ?>
+                                    <li><?php echo $language; ?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                         <div class="column">
                             <ul>
-                                <li>PHP</li>
-                                <li>HTML</li>
-                                <li>CSS</li>
+                                <?php foreach (array_slice($languages, 3) as $language) : ?>
+                                    <li><?php echo $language; ?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
