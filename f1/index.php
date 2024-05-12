@@ -16,7 +16,7 @@ $civil_status = "Single";
 $website_url = "johnpaulbesagas.me";
 
 // Profile 
-$profile_description = "I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and dedicated to continual learning and staying current with industry practices.";
+$profile_description = "I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and dedicated to continuous learning.";
 
 // Education
 $education_degree = "Bachelor of Science in Computer Science with Specialization in Software Engineering";
