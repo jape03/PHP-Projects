@@ -35,10 +35,14 @@
     }
 
     .header {
-        background-color: #333;
+        background-color: #040001;
         color: white;
         padding: 10px;
         text-align: center;
+    }
+
+    .info[name="title"] {
+        color: gray;
     }
 
     section {
@@ -80,88 +84,114 @@
     .languages {
         margin-top: 10px;
     }
+
+    .right_section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: auto;
+        padding-left: 20px;
+    }
+
+    .resume {
+        display: flex;
+    }
+
+    .divider {
+        border-left: 1px solid #ccc;
+        height: 100%;
+        margin-left: 20px;
+    }
 </style>
 
 <body>
     <div class="resume">
-        <header class="header">
-            <div class="info" name="name">John Paul Besagas</div>
-            <div class="info" name="title">Software Engineer</div>
-        </header>
-        <section class="profile">
-            <h3>Profile</h3>
-            <p>I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and am dedicated to continual learning and staying current with industry practices.</p>
-        </section>
-        <section class="education">
-            <h3>Education</h3>
-            <p>Bachelor of Science in Computer Science with Specialization in Software Engineering, 2022-2026, FEU Institute of Technology, Manila</p>
-        </section>
-        <section class="employment">
-            <h3>Employment</h3>
-            <p>Software Developer at ABC Inc., Manila</p>
-            <p>Software Engineer at XYZ Enterprise, Manila</p>
-        </section>
-        <section class="internship">
-            <h3>Internship</h3>
-            <p>Trainee Developer at A/B Corp., Manila</p>
-            <p>Junior Developer</p>
-        </section>
-        <section class="certificate">
-            <h3>Certificates</h3>
-            <p>Linux Professional Institute Certification</p>
-            <p>Python Institute Certifications</p>
-            <p>Microsoft Technology Associate</p>
-        </section>
-        <div class="personal_details">
-            <div>
-                <h3>Personal Details</h3>
-                <p>Date of Birth: April 3, 2004</p>
-                <p>Place of Birth: Jagna, Bohol</p>
-                <p>Gender: Male</p>
-                <p>Nationality: Filipino</p>
-                <p>Civil Status: Single</p>
-                <p>Website: <a href="http://johnpaulbesagas.me">johnpaulbesagas.me</a></p>
-            </div>
-            <div class="skills_details">
-                <h3>Skills</h3>
+        <div class="left_section">
+            <header class="header">
+                <div class="info" name="name">John Paul Besagas</div>
+                <div class="info" name="title">Software Engineer</div>
+            </header>
+            <section class="profile">
+                <h3>Profile</h3>
+                <p>I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and am dedicated to continual learning and staying current with industry practices.</p>
+            </section>
+            <section class="education">
+                <h3>Education</h3>
+                <p>Bachelor of Science in Computer Science with Specialization in Software Engineering, 2022-2026, FEU Institute of Technology, Manila</p>
+            </section>
+            <section class="employment">
+                <h3>Employment</h3>
+                <p>Software Developer at ABC Inc., Manila</p>
+                <p>Software Engineer at XYZ Enterprise, Manila</p>
+            </section>
+            <section class="internship">
+                <h3>Internship</h3>
+                <p>Trainee Developer at A/B Corp., Manila</p>
+                <p>Junior Developer</p>
+            </section>
+            <section class="certificate">
+                <h3>Certificates</h3>
+                <ul>
+                    <li>Linux Professional Institute Certification</li>
+                    <li>Python Institute Certifications</d>
+                    <li>Microsoft Technology Associate</li>
+                </ul>
+            </section>
+        </div>
+        <div class="divider"></div>
+        <div class="right_section">
+            <div class="personal_details">
                 <div>
-                    <div>Leadership</div>
-                    <div class="progress_bar">
-                        <div class="progress_bar_fill" style="width: 70%;"></div>
-                    </div>
-                    <div>Project Management</div>
-                    <div class="progress_bar">
-                        <div class="progress_bar_fill" style="width: 65%;"></div>
-                    </div>
-                    <div>Critical Thinking</div>
-                    <div class="progress_bar">
-                        <div class="progress_bar_fill" style="width: 75%;"></div>
-                    </div>
-                    <div>Problem Solving</div>
-                    <div class="progress_bar">
-                        <div class="progress_bar_fill" style="width: 80%;"></div>
+                    <h3>Personal Details</h3>
+                    <p>Date of Birth: April 3, 2004</p>
+                    <p>Place of Birth: Jagna, Bohol</p>
+                    <p>Gender: Male</p>
+                    <p>Nationality: Filipino</p>
+                    <p>Civil Status: Single</p>
+                    <p>Website: <a href="johnpaulbesagas.me">johnpaulbesagas.me</a></p>
+                </div>
+                <div class="skills_details">
+                    <div>
+                        <h3>Skills</h3>
+                        <div>Leadership</div>
+                        <div class="progress_bar">
+                            <div class="progress_bar_fill" style="width: 70%;"></div>
+                        </div>
+                        <div>Project Management</div>
+                        <div class="progress_bar">
+                            <div class="progress_bar_fill" style="width: 65%;"></div>
+                        </div>
+                        <div>Critical Thinking</div>
+                        <div class="progress_bar">
+                            <div class="progress_bar_fill" style="width: 75%;"></div>
+                        </div>
+                        <div>Problem Solving</div>
+                        <div class="progress_bar">
+                            <div class="progress_bar_fill" style="width: 80%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <section class="languages">
+                <h3>Languages</h3>
+                <div>English</div>
+                <div class="progress_bar">
+                    <div class="progress_bar_fill" style="width: 90%;"></div>
+                </div>
+                <div>Tagalog</div>
+                <div class="progress_bar">
+                    <div class="progress_bar_fill" style="width: 95%;"></div>
+                </div>
+            </section>
+            <section class="hobbies">
+                <h3>Hobbies</h3>
+                <ul>
+                    <li>Coding</li>
+                    <li>Reading</li>
+                </ul>
+            </section>
         </div>
-        <section class="languages">
-            <h3>Languages</h3>
-            <div>English</div>
-            <div class="progress_bar">
-                <div class="progress_bar_fill" style="width: 90%;"></div>
-            </div>
-            <div>Tagalog</div>
-            <div class="progress_bar">
-                <div class="progress_bar_fill" style="width: 95%;"></div>
-            </div>
-        </section>
-        <section class="hobbies">
-            <h3>Hobbies</h3>
-            <ul>
-                <li>Coding</li>
-                <li>Reading</li>
-            </ul>
-        </section>
     </div>
 </body>
 
