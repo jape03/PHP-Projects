@@ -32,6 +32,7 @@
         margin: 20px;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     }
 
     .header {
@@ -39,6 +40,8 @@
         color: white;
         padding: 10px;
         text-align: center;
+        width: 100%;
+
     }
 
     .info[name="title"] {
@@ -106,12 +109,12 @@
 </style>
 
 <body>
+    <div class="header">
+        <div class="info" name="name">John Paul Besagas</div>
+        <div class="info" name="title">Software Engineer</div>
+    </div>
     <div class="resume">
         <div class="left_section">
-            <header class="header">
-                <div class="info" name="name">John Paul Besagas</div>
-                <div class="info" name="title">Software Engineer</div>
-            </header>
             <section class="profile">
                 <h3>Profile</h3>
                 <p>I'm a software engineer skilled in C++, Python, and PHP. I excel in fast-paced environments and am dedicated to continual learning and staying current with industry practices.</p>
@@ -141,7 +144,7 @@
         </div>
         <div class="divider"></div>
         <div class="right_section">
-            <div class="personal_details">
+            <section class="personal_details">
                 <div>
                     <h3>Personal Details</h3>
                     <p>Date of Birth: April 3, 2004</p>
@@ -151,28 +154,28 @@
                     <p>Civil Status: Single</p>
                     <p>Website: <a href="johnpaulbesagas.me">johnpaulbesagas.me</a></p>
                 </div>
-                <div class="skills_details">
-                    <div>
-                        <h3>Skills</h3>
-                        <div>Leadership</div>
-                        <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 70%;"></div>
-                        </div>
-                        <div>Project Management</div>
-                        <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 65%;"></div>
-                        </div>
-                        <div>Critical Thinking</div>
-                        <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 75%;"></div>
-                        </div>
-                        <div>Problem Solving</div>
-                        <div class="progress_bar">
-                            <div class="progress_bar_fill" style="width: 80%;"></div>
-                        </div>
+            </section>
+            <section class="skills_details">
+                <div>
+                    <h3>Skills</h3>
+                    <div>Leadership</div>
+                    <div class="progress_bar">
+                        <div class="progress_bar_fill" style="width: 70%;"></div>
+                    </div>
+                    <div>Project Management</div>
+                    <div class="progress_bar">
+                        <div class="progress_bar_fill" style="width: 65%;"></div>
+                    </div>
+                    <div>Critical Thinking</div>
+                    <div class="progress_bar">
+                        <div class="progress_bar_fill" style="width: 75%;"></div>
+                    </div>
+                    <div>Problem Solving</div>
+                    <div class="progress_bar">
+                        <div class="progress_bar_fill" style="width: 80%;"></div>
                     </div>
                 </div>
-            </div>
+            </section>
             <section class="languages">
                 <h3>Languages</h3>
                 <div>English</div>
