@@ -1,166 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>No1-Length Conversion</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-Length Converter</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .converter {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left_section,
+        .right_section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .divider {
+            width: 1px;
+            background-color: #ccc;
+            margin: 0 20px;
+        }
+
+        .main_section {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .convert_button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
-<style>
-    .chart {
-        border: solid #333;
-        font-size: 50px;
-    }
-
-    .metric,
-    .imperial,
-    .metric-imperial,
-    .imperial-metric {
-        border: solid #ccc;
-        font-size: 50px;
-    }
-
-    tr,
-    td {
-        border: 1px solid red;
-    }
-</style>
 
 <body>
-    <div class="chart" name="chart">
-        <div class="header" name="header">Measure Conversion Chart</div>
-        <div class="main_content" name="main_content">
-            <section class="metric">Metric Conversions
-                <table>
-                    <tr>
-                        <td>1 cm</td>
-                        <td> = </td>
-                        <td>10 mm</td>
-                    </tr>
-                    <tr>
-                        <td>1 dm</td>
-                        <td> = </td>
-                        <td>10 cm</td>
-                    </tr>
-                    <tr>
-                        <td>1 m</td>
-                        <td> = </td>
-                        <td>100 cm</td>
-                    </tr>
-                    <tr>
-                        <td>1 km</td>
-                        <td>= </td>
-                        <td>1000 m</td>
-                    </tr>
-                </table>
-            </section>
-            <section class="imperial">Imperial Conversions
-                <table>
-                    <tr>
-                        <td>1 ft</td>
-                        <td> = </td>
-                        <td>12 in</td>
-                    </tr>
-                    <tr>
-                        <td>1 yd</td>
-                        <td> = </td>
-                        <td>3 ft</td>
-                    </tr>
-                    <tr>
-                        <td>1 ch</td>
-                        <td> = </td>
-                        <td>22 yd</td>
-                    </tr>
-                    <tr>
-                        <td>1 fur</td>
-                        <td>= </td>
-                        <td>220 yd</td>
-                    </tr>
-                    <tr>
-                        <td>1 mi</td>
-                        <td>= </td>
-                        <td>1760 yd</td>
-                    </tr>
-                </table>
-            </section>
-            <section class="metric-imperial">Metric -> Imperial Conversions
-                <table>
-                    <tr>
-                        <td>1 mm</td>
-                        <td> = </td>
-                        <td>0.03937 in</td>
-                    </tr>
-                    <tr>
-                        <td>1 cm</td>
-                        <td> = </td>
-                        <td>0.39370 in</td>
-                    </tr>
-                    <tr>
-                        <td>1 m</td>
-                        <td> = </td>
-                        <td>39.37008 in</td>
-                    </tr>
-                    <tr>
-                        <td>1 m</td>
-                        <td>= </td>
-                        <td>3.28084 ft</td>
-                    </tr>
-                    <tr>
-                        <td>1 m</td>
-                        <td>= </td>
-                        <td>1.09361 yd</td>
-                    </tr>
-                    <tr>
-                        <td>1 km</td>
-                        <td>= </td>
-                        <td>1093.6133 yd</td>
-                    </tr>
-                    <tr>
-                        <td>1 km</td>
-                        <td>= </td>
-                        <td>0.62137 mi</td>
-                    </tr>
-                </table>
-            </section>
-            <section class="imperial-metric">Imperial -> Metric Conversions
-                <table>
-                    <tr>
-                        <td>1 in</td>
-                        <td> = </td>
-                        <td>2.54 cm</td>
-                    </tr>
-                    <tr>
-                        <td>1 ft</td>
-                        <td> = </td>
-                        <td>30.48 cm</td>
-                    </tr>
-                    <tr>
-                        <td>1 yd</td>
-                        <td> = </td>
-                        <td>91.44 cm</td>
-                    </tr>
-                    <tr>
-                        <td>1 yd</td>
-                        <td>= </td>
-                        <td>0.9144 m</td>
-                    </tr>
-                    <tr>
-                        <td>1 mi</td>
-                        <td>= </td>
-                        <td>1609.344 m</td>
-                    </tr>
-                    <tr>
-                        <td>1 mi</td>
-                        <td>= </td>
-                        <td>1.609344 km</td>
-                    </tr>
-                </table>
-            </section>
-
-        </div>
+    <div class="converter">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <h1>Length Converter</h1>
+            <div class="main_section" name="main_section">
+                <div class="left_section" name="left_section">
+                    <input type="text" name="length" placeholder="From"> <br>
+                    <input type="radio" name="unit" value="Meter"> Meter<br>
+                    <input type="radio" name="unit" value="Kilometer"> Kilometer<br>
+                    <input type="radio" name="unit" value="Centimeter"> Centimeter<br>
+                    <input type="radio" name="unit" value="Milimeter"> Milimeter<br>
+                    <input type="radio" name="unit" value="Micrometer"> Micrometer<br>
+                    <input type="radio" name="unit" value="Nanometer"> Nanometer<br>
+                    <input type="radio" name="unit" value="Mile"> Mile<br>
+                    <input type="radio" name="unit" value="Yard"> Yard<br>
+                    <input type="radio" name="unit" value="Foot"> Foot<br>
+                    <input type="radio" name="unit" value="Inch"> Inch<br>
+                </div>
+                <div class="divider"></div>
+                <div class="right_section" name="right_section">
+                    <input type="text" name="length" placeholder="To" disabled> <br>
+                    <input type="radio" name="unit" value="Meter"> Meter<br>
+                    <input type="radio" name="unit" value="Kilometer"> Kilometer<br>
+                    <input type="radio" name="unit" value="Centimeter"> Centimeter<br>
+                    <input type="radio" name="unit" value="Milimeter"> Milimeter<br>
+                    <input type="radio" name="unit" value="Micrometer"> Micrometer<br>
+                    <input type="radio" name="unit" value="Nanometer"> Nanometer<br>
+                    <input type="radio" name="unit" value="Mile"> Mile<br>
+                    <input type="radio" name="unit" value="Yard"> Yard<br>
+                    <input type="radio" name="unit" value="Foot"> Foot<br>
+                    <input type="radio" name="unit" value="Inch"> Inch<br>
+                </div>
+            </div>
+            <div class="convert_button">
+                <button type="submit" name="convert">Convert</button>
+            </div>
+        </form>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['convert'])) {
+            $length = $_POST['length'];
+        }
+        ?>
     </div>
 </body>
 
