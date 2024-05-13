@@ -148,6 +148,7 @@
                 <div class="right_section">
                     <h3>To</h3>
                     <select name="to_unit">
+                        <option value="" disabled selected>Select Unit</option>
                         <?php
                         $units = ["Meter", "Kilometer", "Centimeter", "Milimeter", "Micrometer", "Nanometer", "Mile", "Yard", "Foot", "Inch"];
                         foreach ($units as $unit) {
