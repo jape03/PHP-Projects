@@ -124,7 +124,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="converter">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
