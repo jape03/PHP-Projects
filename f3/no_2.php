@@ -73,10 +73,6 @@
             <td>Multiplication</td>
             <td><?php echo $product; ?></td>
         </tr>
-        <tr>
-            <td>Division</td>
-            <td><?php echo $quotient; ?></td>
-        </tr>
         </tr>
     </table>
 </body>
