@@ -91,7 +91,7 @@
 
 <body>
     <div class="header">
-        <a href="#PersonalInformation">Personal Information</a>
+        <a href="personal_info.php">Personal Information</a>
         <a href="#CareerObjective">Career Objective</a>
         <a href="#Education">Educational Attainment</a>
         <a href="#Skills">Skills</a>
