@@ -101,25 +101,37 @@
     <div class="resume">
         <div class="main_section">
             <div class="picture-container">
-                <!-- Add your picture here -->
+                <img src="pic.jpg" alt="pic">
             </div>
             <section id="PersonalInformation" class="PersonalInformation">
-                <a href="personal_info.php"><h3>Personal Information</h3></a>
+                <a href="personal_info.php">
+                    <h3>Personal Information</h3>
+                </a>
             </section>
             <section id="CareerObjective" class="CareerObjective">
-                <a href="#CareerObjective"><h3>Career Objective</h3></a>
+                <a href="#CareerObjective">
+                    <h3>Career Objective</h3>
+                </a>
             </section>
             <section id="Education" class="Education">
-                <a href="#Education"><h3>Educational Attainment</h3></a>
+                <a href="#Education">
+                    <h3>Educational Attainment</h3>
+                </a>
             </section>
             <section id="Skills" class="Skills">
-                <a href="#Skills"><h3>Skills</h3></a>
+                <a href="#Skills">
+                    <h3>Skills</h3>
+                </a>
             </section>
             <section id="Affiliation" class="Affiliation">
-                <a href="#Affiliation"><h3>Affiliation</h3></a>
+                <a href="#Affiliation">
+                    <h3>Affiliation</h3>
+                </a>
             </section>
             <section id="WorkExp" class="WorkExp">
-                <a href="#WorkExp"><h3>Work Experience</h3></a>
+                <a href="#WorkExp">
+                    <h3>Work Experience</h3>
+                </a>
             </section>
         </div>
     </div>
