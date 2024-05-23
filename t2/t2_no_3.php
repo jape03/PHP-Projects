@@ -104,7 +104,7 @@
     <div class="resume">
         <div class="main_section">
             <div class="picture-container">
-                <img src="images_t2/pic.jpg" alt="pic">
+                <img src="https://raw.githubusercontent.com/jape03/PHP-Projects/main/t2/images_t2/pic.jpg" alt="pic">
             </div>
             <section id="PersonalInformation" class="PersonalInformation">
                 <a href="personal_info.php">
