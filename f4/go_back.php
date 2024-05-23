@@ -1,3 +1,3 @@
 <div class="back">
-    <a href="no_1_index.php"><button>Back</button></a>
+    <a href="t2_no_1.php"><button>Back</button></a>
 </div>

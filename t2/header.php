@@ -32,12 +32,12 @@
 
 <body>
     <div class="header">
-        <a href="#PersonalInformation">Personal Information</a>
-        <a href="#CareerObjective">Career Objective</a>
-        <a href="#Education">Educational Attainment</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Affiliation">Affiliation</a>
-        <a href="#WorkExp">Work Experience</a>
+        <a href="personal_info.php">Personal Information</a>
+        <a href="career_obj.php">Career Objective</a>
+        <a href="education.php">Educational Attainment</a>
+        <a href="skills.php">Skills</a>
+        <a href="affiliation.php">Affiliation</a>
+        <a href="work_exp.php">Work Experience</a>
     </div>
 </body>
 

@@ -14,6 +14,17 @@
             background-color: #f2f2f2;
         }
 
+        a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #007bff;
+        }
+
         .header {
             background-color: #333;
             color: #fff;
@@ -90,18 +101,10 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="personal_info.php">Personal Information</a>
-        <a href="#CareerObjective">Career Objective</a>
-        <a href="#Education">Educational Attainment</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Affiliation">Affiliation</a>
-        <a href="#WorkExp">Work Experience</a>
-    </div>
     <div class="resume">
         <div class="main_section">
             <div class="picture-container">
-                <img src="pic.jpg" alt="pic">
+                <img src="images_t2/pic.jpg" alt="pic">
             </div>
             <section id="PersonalInformation" class="PersonalInformation">
                 <a href="personal_info.php">
@@ -109,27 +112,27 @@
                 </a>
             </section>
             <section id="CareerObjective" class="CareerObjective">
-                <a href="#CareerObjective">
+                <a href="career_obj.php">
                     <h3>Career Objective</h3>
                 </a>
             </section>
             <section id="Education" class="Education">
-                <a href="#Education">
+                <a href="education.php">
                     <h3>Educational Attainment</h3>
                 </a>
             </section>
             <section id="Skills" class="Skills">
-                <a href="#Skills">
+                <a href="skills.php">
                     <h3>Skills</h3>
                 </a>
             </section>
             <section id="Affiliation" class="Affiliation">
-                <a href="#Affiliation">
+                <a href="affiliation.php">
                     <h3>Affiliation</h3>
                 </a>
             </section>
             <section id="WorkExp" class="WorkExp">
-                <a href="#WorkExp">
+                <a href="work_exp.php">
                     <h3>Work Experience</h3>
                 </a>
             </section>

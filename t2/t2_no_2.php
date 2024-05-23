@@ -1,36 +1,6 @@
 <?php
 
-function volume_cube($side_length)
-{
-    return pow($side_length, 3);
-}
-
-function volume_rectangular_prism($length, $width, $height)
-{
-    return $length * $width * $height;
-}
-
-function volume_cylinder($radius, $height)
-{
-    return pi() * pow($radius, 2) * $height;
-}
-
-function volume_cone($radius, $height)
-{
-    return (1 / 3) * pi() * pow($radius, 2) * $height;
-}
-
-function volume_pyramid($base_area, $height)
-{
-    return (1 / 3) * $base_area * $height;
-}
-
-function volume_sphere($radius)
-{
-    return (4 / 3) * pi() * pow($radius, 3);
-}
-
-$examples = array(
+$shapes = array(
     "Cube" => array('s' => 3),
     "Right Rectangular Prism" => array('l' => 3, 'w' => 4, 'h' => 5),
     "Cylinder" => array('r' => 3, 'h' => 5),
@@ -48,26 +18,56 @@ $formulas = array(
     "Sphere" => "V = (4/3) π r³"
 );
 
+function cube($side_length)
+{
+    return pow($side_length, 3);
+}
 
-foreach ($examples as $shape => $values) {
+function rectangular_prism($length, $width, $height)
+{
+    return $length * $width * $height;
+}
+
+function cylinder($radius, $height)
+{
+    return pi() * pow($radius, 2) * $height;
+}
+
+function cone($radius, $height)
+{
+    return (1 / 3) * pi() * pow($radius, 2) * $height;
+}
+
+function pyramid($base_area, $height)
+{
+    return (1 / 3) * $base_area * $height;
+}
+
+function sphere($radius)
+{
+    return (4 / 3) * pi() * pow($radius, 3);
+}
+
+
+foreach ($shapes as $shape => $values) {
     switch ($shape) {
         case 'Cube':
-            $volumes[$shape] = volume_cube($values['s']); // Change 'side_length' to 's'
+            $volumes[$shape] = cube($values['s']);
             break;
         case 'Right Rectangular Prism':
-            $volumes[$shape] = volume_rectangular_prism($values['l'], $values['w'], $values['h']); // Change 'length' to 'l', 'width' to 'w', and 'height' to 'h'
+            $volumes[$shape] = rectangular_prism($values['l'], $values['w'], $values['h']);
             break;
         case 'Cylinder':
-            $volumes[$shape] = volume_cylinder($values['r'], $values['h']); // Change 'radius' to 'r'
+            $volumes[$shape] = cylinder($values['r'], $values['h']);
             break;
         case 'Pyramid':
-            $volumes[$shape] = volume_pyramid($values['B'], $values['h']); // Change 'base_area' to 'base_area'
+            $volumes[$shape] = pyramid($values['B'], $values['h']);
             break;
         case 'Cone':
-            $volumes[$shape] = volume_cone($values['r'], $values['h']); // Change 'radius' to 'r'
+            $volumes[$shape] = cone($values['r'], $values['h']);
             break;
         case 'Sphere':
-            $volumes[$shape] = volume_sphere($values['r']); // Change 'radius' to 'r'
+            $volumes[$shape] = sphere($values['r']);
             break;
     }
 }
@@ -113,21 +113,21 @@ foreach ($examples as $shape => $values) {
 
 <body>
     <table>
-        <thead>
+        <tr>
+            <th colspan ="4">Volumes of Shapes</th>
+        </tr>
             <tr>
                 <th>Shape</th>
                 <th>Values</th>
                 <th>Formula</th>
                 <th>Volume</th>
             </tr>
-        </thead>
-        <tbody>
             <?php foreach ($formulas as $shape => $formula) : ?>
                 <tr>
                     <td><?php echo $shape; ?></td>
                     <td>
                         <?php
-                        $values = $examples[$shape];
+                        $values = $shapes[$shape];
                         $value_str = '';
                         foreach ($values as $key => $value) {
                             $value_str .= "$key = $value, ";
@@ -140,7 +140,6 @@ foreach ($examples as $shape => $values) {
                     <td><?php echo number_format($volumes[$shape], 2); ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
     </table>
 </body>
 

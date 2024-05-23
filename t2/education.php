@@ -2,6 +2,10 @@
 include("header.php")
 ?>
 
+<?php
+$education_degree = "Bachelor of Science in Computer Science with Specialization in Software Engineering";
+$education_institution = "FEU Institute of Technology, Manila";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,16 +34,26 @@ include("header.php")
             position: relative;
         }
 
+        h3 {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="resume">
-        <section id="PersonalInformation" class="PersonalInformation">
-            <h3>Personal Information</h3>
-            hahahahahahahahahahahhahahahahahahahaha
+        <section id="Education" class="Education">
+            <h3>Educational Attainment</h3>
+            <div>
+                <h4><?php echo $education_degree; ?></h4>
+                <p><?php echo $education_institution; ?></p>
+            </div>
         </section>
     </div>
 </body>
 
 </html>
+
+<?php
+include("footer.php")
+?>
