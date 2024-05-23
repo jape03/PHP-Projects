@@ -39,14 +39,13 @@ $examples = array(
     "Sphere" => array('r' => 3)
 );
 
-
 $formulas = array(
-    "Cube" => "V = s<sup>3</sup>",
-    "Right Rectangular Prism" => "V = l x w x h",
-    "Cylinder" => "V = π r<sup>2</sup> h",
+    "Cube" => "V = s³",
+    "Right Rectangular Prism" => "V = l × w × h",
+    "Cylinder" => "V = π r² h",
     "Pyramid" => "V = (1/3) Bh",
-    "Cone" => "V = (1/3) π r<sup>2</sup> h",
-    "Sphere" => "V = (4/3) π r<sup>3</sup>"
+    "Cone" => "V = (1/3) π r² h",
+    "Sphere" => "V = (4/3) π r³"
 );
 
 
