@@ -25,9 +25,10 @@ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
 
 require_once __DIR__.'/public/index.php';
 
-
+-------------------------------------------------
 # To run laravel project on localhost using XAMPP 
 # Rename the server.php into index.php 
     # IF MISSING MAKE A SERVER.PHP then rename it 
 # Next copy .htaccess file from public folder to the current main project folder
 # Done
+--------------------------------------------------
