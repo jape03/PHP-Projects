@@ -1,6 +1,6 @@
 # Missing server.php in laravel project 
 # Create a php file, name it server.php and paste this code
-
+-----------------------------------------------------------
 
 <?php
 
