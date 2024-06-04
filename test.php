@@ -10,6 +10,7 @@
 <body>
     <?php
     echo "sss";
+    echo "ssS";
     ?>
 </body>
 
