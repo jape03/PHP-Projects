@@ -11,6 +11,7 @@
     <?php
     echo "sss";
     echo "ssS";
+    print("test");
     ?>
 </body>
 
