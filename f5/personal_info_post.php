@@ -10,7 +10,7 @@
 </style>
 
 <body>
-    <form action="" method="POST">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> " method="POST">
         <label for="firstname">First Name:</label>
         <input type="text" id="firstname" name="firstname"><br><br>
         <label for="middlename">Middle Name:</label>
