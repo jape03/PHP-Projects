@@ -11,14 +11,14 @@
 
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> " method="POST">
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname"><br><br>
-        <label for="middlename">Middle Name:</label>
-        <input type="text" id="middlename" name="middlename"><br><br>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname"><br><br>
-        <label for="dateOfBirth">Date of Birth:</label>
-        <input type="text" id="dateOfBirth" name="dateOfBirth"><br><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"><br><br>
+        <label for="middle_name">Middle Name:</label>
+        <input type="text" id="middle_name" name="middle_name"><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"><br><br>
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="text" id="date_of_birth" name="date_of_birth"><br><br>
         <label for="address">Address:</label>
         <input type="text" id="address" name="address"><br><br>
         <input type="submit" value="Submit">
@@ -28,16 +28,16 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstname = $_POST["firstname"];
-    $middlename = $_POST["middlename"];
-    $lastname = $_POST["lastname"];
-    $dateOfBirth = $_POST["dateOfBirth"];
+    $first_name = $_POST["first_name"];
+    $middle_name = $_POST["middle_name"];
+    $last_name = $_POST["last_name"];
+    $date_of_birth = $_POST["date_of_birth"];
     $address = $_POST["address"];
 
-    echo "First Name: $firstname<br>";
-    echo "Middle Name: $middlename<br>";
-    echo "Last Name: $lastname<br>";
-    echo "Date of Birth: $dateOfBirth<br>";
+    echo "First Name: $first_name<br>";
+    echo "Middle Name: $middle_name<br>";
+    echo "Last Name: $last_name<br>";
+    echo "Date of Birth: $date_of_birth<br>";
     echo "Address: $address<br>";
     }
 ?>

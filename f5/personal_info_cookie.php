@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No - 2</title>
     <?php
-    if (isset($_COOKIE['starttime'])) {
-        $delay = time() - $_COOKIE['starttime'];
-        if ($delay < 40) {
+    if (isset($_COOKIE['start_time'])) {
+        $delay_display = time() - $_COOKIE['start_time'];
+        if ($delay_display < 40) {
             echo '<meta http-equiv="refresh" content="10">';
         }
     }
@@ -15,45 +15,45 @@
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname"><br><br>
-        <label for="middlename">Middle Name:</label>
-        <input type="text" id="middlename" name="middlename"><br><br>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname"><br><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"><br><br>
+        <label for="middle_name">Middle Name:</label>
+        <input type="text" id="middle_name" name="middle_name"><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"><br><br>
         <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-        setcookie("firstname", $_POST["firstname"], time() + 86400, "/");
-        setcookie("middlename", $_POST["middlename"], time() + 86400, "/");
-        setcookie("lastname", $_POST["lastname"], time() + 86400, "/");
-        setcookie("starttime", time(), time() + 86400, "/");
+        setcookie("first_name", $_POST["first_name"], time() + 86400, "/");
+        setcookie("middle_name", $_POST["middle_name"], time() + 86400, "/");
+        setcookie("last_name", $_POST["last_name"], time() + 86400, "/");
+        setcookie("start_time", time(), time() + 86400, "/");
     }
 
-    if (isset($_COOKIE['starttime'])) {
-        $delay = time() - $_COOKIE['starttime'];
+    if (isset($_COOKIE['start_time'])) {
+        $delay_display = time() - $_COOKIE['start_time'];
         echo "<div id='cookieDisplay'>";
 
-        if ($delay >= 10 && $delay < 20) {
+        if ($delay_display >= 10 && $delay_display < 20) {
             echo "Cookies at 10 seconds:<br>";
-        } elseif ($delay >= 20 && $delay < 30) {
+        } elseif ($delay_display >= 20 && $delay_display < 30) {
             echo "Cookies at 20 seconds:<br>";
-        } elseif ($delay >= 30 && $delay < 40) {
+        } elseif ($delay_display >= 30 && $delay_display < 40) {
             echo "Cookies at 30 seconds:<br>";
         }
 
-        if ($delay >= 10) {
-            if (isset($_COOKIE['firstname'])) {
-                echo "First Name: " . $_COOKIE['firstname'] . "<br>";
+        if ($delay_display >= 10) {
+            if (isset($_COOKIE['first_name'])) {
+                echo "First Name: " . $_COOKIE['first_name'] . "<br>";
             }
-            if (isset($_COOKIE['middlename'])) {
-                echo "Middle Name: " . $_COOKIE['middlename'] . "<br>";
+            if (isset($_COOKIE['middle_name'])) {
+                echo "Middle Name: " . $_COOKIE['middle_name'] . "<br>";
             }
-            if (isset($_COOKIE['lastname'])) {
-                echo "Last Name: " . $_COOKIE['lastname'] . "<br>";
+            if (isset($_COOKIE['last_name'])) {
+                echo "Last Name: " . $_COOKIE['last_name'] . "<br>";
             }
         }
         echo "</div>";
