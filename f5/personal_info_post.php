@@ -21,7 +21,7 @@
             <label for="last_name">Last Name:</label>
             <input type="text" id="last_name" name="last_name" value="<?php echo isset($_POST['last_name']) ? htmlspecialchars($_POST['last_name']) : ''; ?>" <?php echo isset($_POST['submitted']) ? 'readonly style="background-color: #e9e9e9;"' : ''; ?>><br><br>
             <label for="date_of_birth">Date of Birth:</label>
-            <input type="text" id="date_of_birth" name="date_of_birth" value="<?php echo isset($_POST['date_of_birth']) ? htmlspecialchars($_POST['date_of_birth']) : ''; ?>" <?php echo isset($_POST['submitted']) ? 'readonly style="background-color: #e9e9e9;"' : ''; ?>><br><br>
+            <input type="date" id="date_of_birth" name="date_of_birth" value="<?php echo isset($_POST['date_of_birth']) ? htmlspecialchars($_POST['date_of_birth']) : ''; ?>" <?php echo isset($_POST['submitted']) ? 'readonly style="background-color: #e9e9e9;"' : ''; ?>><br><br>
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" value="<?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address']) : ''; ?>" <?php echo isset($_POST['submitted']) ? 'readonly style="background-color: #e9e9e9;"' : ''; ?>><br><br>
             <input type="hidden" name="submitted" value="1">
