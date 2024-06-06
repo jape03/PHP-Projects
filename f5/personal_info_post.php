@@ -38,15 +38,15 @@
                 !empty($_POST["date_of_birth"]) && !empty($_POST["address"])
             ) {
 
-                $first_name = $_POST["first_name"];
-                $middle_name = $_POST["middle_name"];
-                $last_name = $_POST["last_name"];
-                $date_of_birth = $_POST["date_of_birth"];
+                $first_name = htmlspecialchars($_POST["first_name"]);
+                $middle_name = htmlspecialchars($_POST["middle_name"]);
+                $last_name = htmlspecialchars($_POST["last_name"]);
+                $date_of_birth = htmlspecialchars($_POST["date_of_birth"]);
 
                 $date = explode('-', $date_of_birth);
                 $formatted_date = $date[1] . '/' . $date[2] . '/' . $date[0];
 
-                $address = $_POST["address"];
+                $address = htmlspecialchars($_POST["address"]);
 
                 echo "First Name: $first_name<br>";
                 echo "Middle Name: $middle_name<br>";
@@ -58,6 +58,7 @@
             }
         }
         ?>
+
     </div>
 </body>
 

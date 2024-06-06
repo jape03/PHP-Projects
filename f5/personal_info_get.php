@@ -38,15 +38,15 @@
                 !empty($_GET["date_of_birth"]) && !empty($_GET["address"])
             ) {
 
-                $first_name = $_GET["first_name"];
-                $middle_name = $_GET["middle_name"];
-                $last_name = $_GET["last_name"];
-                $date_of_birth = $_GET["date_of_birth"];
+                $first_name = htmlspecialchars($_GET["first_name"]);
+                $middle_name = htmlspecialchars($_GET["middle_name"]);
+                $last_name = htmlspecialchars($_GET["last_name"]);
+                $date_of_birth = htmlspecialchars($_GET["date_of_birth"]);
 
                 $date = explode('-', $date_of_birth);
                 $formatted_date = $date[1] . '/' . $date[2] . '/' . $date[0];
 
-                $address = $_GET["address"];
+                $address = htmlspecialchars($_GET["address"]);
 
                 echo "First Name: $first_name<br>";
                 echo "Middle Name: $middle_name<br>";
@@ -58,6 +58,7 @@
             }
         }
         ?>
+
     </div>
 </body>
 
