@@ -42,6 +42,10 @@
                 $middle_name = $_GET["middle_name"];
                 $last_name = $_GET["last_name"];
                 $date_of_birth = $_GET["date_of_birth"];
+
+                $date = explode('-', $date_of_birth);
+                $formatted_date = $date[1] . '/' . $date[2] . '/' . $date[0];
+
                 $address = $_GET["address"];
 
                 echo "First Name: $first_name<br>";

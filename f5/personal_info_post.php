@@ -42,6 +42,10 @@
                 $middle_name = $_POST["middle_name"];
                 $last_name = $_POST["last_name"];
                 $date_of_birth = $_POST["date_of_birth"];
+
+                $date = explode('-', $date_of_birth);
+                $formatted_date = $date[1] . '/' . $date[2] . '/' . $date[0];
+                
                 $address = $_POST["address"];
 
                 echo "First Name: $first_name<br>";
