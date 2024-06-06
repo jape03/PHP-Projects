@@ -51,7 +51,7 @@
                 echo "First Name: $first_name<br>";
                 echo "Middle Name: $middle_name<br>";
                 echo "Last Name: $last_name<br>";
-                echo "Date of Birth: $date_of_birth<br>";
+                echo "Date of Birth: $formatted_date<br>";
                 echo "Address: $address<br>";
             } else {
                 echo "All fields must be filled out.";
