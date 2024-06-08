@@ -1,3 +1,12 @@
+this it to commit
+
+git add . <br>
+git commit -m "commit message" <br>
+git push origin main 
+
+to pull and commit
+
+git pull <br>
 git add . <br>
 git commit -m "commit message" <br>
 git push origin main 
