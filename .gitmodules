@@ -1,0 +1,3 @@
+[submodule "PHP-Projects"]
+	path = PHP-Projects
+	url = https://github.com/jape03/PHP-Projects.git
