@@ -15,9 +15,7 @@
     <div class="main">
         <form action="ResultColors.php" method="POST">
             <table>
-                <tr>
-                    <th colspan="2">Enter your favorite colors</th>
-                </tr>
+                <h2>Enter your favorite colors</h2>
                 <tr>
                     <td><label for="favorite_color1">Favorite Color 1:</label></td>
                     <td><input type="text" name="favorite_color1" id="favorite_color1" required></td>

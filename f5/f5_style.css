@@ -53,18 +53,20 @@ button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background-color: #6a7fcb; 
+  background-color: #6a7fcb;
   color: white;
   cursor: pointer;
   margin-right: 10px;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
 }
 
 input[type="submit"]:hover,
 button:hover {
-  background-color: #5a6ebf; 
+  background-color: #5a6ebf;
 }
 
 a {
   text-decoration: none;
 }
+
+
