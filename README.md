@@ -1,5 +1,5 @@
 --------------
-PHP PROJECTs <br>
+PHP PROJECTS <br>
 -------------
 
 
