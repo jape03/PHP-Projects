@@ -22,7 +22,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql = "SELECT name, breed, age, address, color, height, weight FROM dogs";
+        $sql = "SELECT name, breed, age, address, color, height_ft, weight_kg FROM dogs";
         $result = $conn->query($sql);
         ?>
         <?php if ($result->num_rows > 0) : ?>
@@ -43,8 +43,8 @@
                         <td><?= htmlspecialchars($row["age"]) ?></td>
                         <td><?= htmlspecialchars($row["address"]) ?></td>
                         <td><?= htmlspecialchars($row["color"]) ?></td>
-                        <td><?= htmlspecialchars($row["height"]) ?></td>
-                        <td><?= htmlspecialchars($row["weight"]) ?></td>
+                        <td><?= htmlspecialchars($row["height_ft"]) ?></td>
+                        <td><?= htmlspecialchars($row["weight_kg"]) ?></td>
                     </tr>
                 <?php endwhile; ?>
             </table>
