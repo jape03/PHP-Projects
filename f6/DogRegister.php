@@ -1,26 +1,22 @@
 <?php
-session_start(); // Start the session to use session variables
+session_start(); 
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "dogregister";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Prepare and bind
+
     $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height, weight) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssissss", $name, $breed, $age, $address, $color, $height, $weight);
 
-    // Set parameters and execute
     $name = $_POST['name'];
     $breed = $_POST['breed'];
     $age = (int)$_POST['age']; 
@@ -31,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->execute();
 
-    // Check if the insert was successful
     if ($stmt->affected_rows > 0) {
         $_SESSION['message'] = "Dog registered successfully";
     } else {
@@ -41,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 
-    // Redirect to the same page to avoid form resubmission on refresh
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
@@ -83,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php
         if (isset($_SESSION['message'])) {
-            echo $_SESSION['message']; // Display the session message
-            unset($_SESSION['message']); // Clear the session message
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']); 
         }
         ?>
 
