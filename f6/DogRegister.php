@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set parameters and execute
     $name = $_POST['name'];
     $breed = $_POST['breed'];
-    $age = (int)$_POST['age']; // Casting to integer to ensure age is a number
+    $age = (int)$_POST['age']; 
     $address = $_POST['address'];
     $color = $_POST['color'];
     $height = $_POST['height'];
