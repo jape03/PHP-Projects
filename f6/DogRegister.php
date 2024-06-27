@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height, weight) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssissss", $name, $breed, $age, $address, $color, $height, $weight);
+    $stmt->bind_param("ssissss", $name, $breed, $age, $address, $color, $height, $weight);    
 
     $name = $_POST['name'];
     $breed = $_POST['breed'];

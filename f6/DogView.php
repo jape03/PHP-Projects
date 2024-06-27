@@ -10,46 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins&display=swap" rel="stylesheet">
     <title>DogView</title>
 </head>
-
 <body>
     <div class="main">
         <?php
         session_start();
-
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "dogregister";
-
-        // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
-        // Query the database for all dog records
         $sql = "SELECT name, breed, age, address, color, height, weight FROM dogs";
         $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo "<table><tr><th>Name</th><th>Breed</th><th>Age</th><th>Address</th><th>Color</th><th>Height</th><th>Weight</th></tr>";
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["name"]. "</td><td>" . $row["breed"]. "</td><td>" . $row["age"]. "</td><td>" . $row["address"]. "</td><td>" . $row["color"]. "</td><td>" . $row["height"]. "</td><td>" . $row["weight"]. "</td></tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
         ?>
-
+        <?php if ($result->num_rows > 0) : ?>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Color</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                </tr>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row["name"]) ?></td>
+                        <td><?= htmlspecialchars($row["breed"]) ?></td>
+                        <td><?= htmlspecialchars($row["age"]) ?></td>
+                        <td><?= htmlspecialchars($row["address"]) ?></td>
+                        <td><?= htmlspecialchars($row["color"]) ?></td>
+                        <td><?= htmlspecialchars($row["height"]) ?></td>
+                        <td><?= htmlspecialchars($row["weight"]) ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
+        <?php else : ?>
+            <p>0 results</p>
+        <?php endif; ?>
+        <?php $conn->close(); ?>
         <div class="button">
             <a href="DogRegister.php"><button type="button">Back</button></a>
         </div>
     </div>
 </body>
-
 </html>
