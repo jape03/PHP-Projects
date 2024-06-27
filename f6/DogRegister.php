@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -15,11 +15,11 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height, weight) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssissss", $name, $breed, $age, $address, $color, $height, $weight);    
+    $stmt->bind_param("ssissss", $name, $breed, $age, $address, $color, $height, $weight);
 
     $name = $_POST['name'];
     $breed = $_POST['breed'];
-    $age = (int)$_POST['age']; 
+    $age = (int)$_POST['age'];
     $address = $_POST['address'];
     $color = $_POST['color'];
     $height = $_POST['height'];
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="main">
         <h1>Dog Register</h1>
-        <form action="DogRegister.php" method="post">
+        <form action="DogRegister.php" method="post" style="display: inline;">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="breed">Breed:</label>
@@ -77,12 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php
         if (isset($_SESSION['message'])) {
-            echo $_SESSION['message']; 
-            unset($_SESSION['message']); 
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
         }
         ?>
 
-        <form action="DogView.php" method="post">
+        <form action="DogView.php" method="get" style="display: inline;">
             <input type="submit" value="View Dogs">
         </form>
 
