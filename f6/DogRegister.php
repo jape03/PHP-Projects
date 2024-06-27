@@ -14,16 +14,16 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height, weight) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $name, $breed, $age, $address, $color, $height, $weight);
-
+    $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height_ft, weight_kg) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssisdds", $name, $breed, $age, $address, $color, $height, $weight);
+    
     $name = $_POST['name'];
     $breed = $_POST['breed'];
-    $age = $_POST['age'];
+    $age = (int) $_POST['age']; 
     $address = $_POST['address'];
     $color = $_POST['color'];
-    $height = $_POST['height'];
-    $weight = $_POST['weight'];
+    $height = (float) $_POST['height_ft']; 
+    $weight = (float) $_POST['weight_kg']; 
 
     $stmt->execute();
 
