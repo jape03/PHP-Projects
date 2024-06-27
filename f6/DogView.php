@@ -33,8 +33,8 @@
                     <th>Age</th>
                     <th>Address</th>
                     <th>Color</th>
-                    <th>Height</th>
-                    <th>Weight</th>
+                    <th>Height (ft)</th>
+                    <th>Weight (kg)</th>
                 </tr>
                 <?php while ($row = $result->fetch_assoc()) : ?>
                     <tr>

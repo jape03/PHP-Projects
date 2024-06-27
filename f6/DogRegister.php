@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
 
-        <form action="DogView.php" method="get" style="display: inline;">
+        <form action="DogView.php" method="post" style="display: inline;">
             <input type="submit" value="View Dogs">
         </form>
 
