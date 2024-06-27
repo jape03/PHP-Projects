@@ -15,17 +15,18 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare("INSERT INTO dogs (name, breed, age, address, color, height_ft, weight_kg) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssisdds", $name, $breed, $age, $address, $color, $height, $weight);
+    $stmt->bind_param("sssssdd", $name, $breed, $age, $address, $color, $height, $weight);
     
     $name = $_POST['name'];
     $breed = $_POST['breed'];
-    $age = (int) $_POST['age']; 
+    $age =  $_POST['age']; 
     $address = $_POST['address'];
     $color = $_POST['color'];
     $height = (float) $_POST['height_ft']; 
     $weight = (float) $_POST['weight_kg']; 
-
+    
     $stmt->execute();
+    
 
     if ($stmt->affected_rows > 0) {
         $_SESSION['message'] = "Dog registered successfully";
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
+
 }
 
 ?>
