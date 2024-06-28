@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
+    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
+        $username = htmlspecialchars($_POST["username"]);
+        $password = htmlspecialchars($_POST["password"]);
+
+        $_SESSION['username'] = $username;
+
+        if (isset($_POST["remember"])) {
+            setcookie("username", $username, time() + (86400 * 30), "/"); 
+            setcookie("password", $password, time() + (86400 * 30), "/"); 
+        } else {
+            setcookie("username", "", time() - 3600, "/"); 
+            setcookie("password", "", time() - 3600, "/"); 
+        }
+
+        $_SESSION['message'] = "Login Successfully!";
+    } else {
+        $_SESSION['message'] = "Please enter both username and password.";
+    }
+
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,31 +57,19 @@
             <div class="buttons">
                 <span>
                     <label for="remember">Remember Me</label>
-                    <input type="checkbox" id="remember" name="remember"><br><br>
+                    <input type="checkbox" id="remember" name="remember" <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?>><br><br>
                 </span>
                 <span>
                     <input type="submit" value="Submit">
-                </span>
-                <span>
-                    <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"><button type="button">Edit</button></a>
                 </span>
             </div>
         </form>
 
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-                $username = htmlspecialchars($_POST["username"]);
-                $password = htmlspecialchars($_POST["password"]);
-
-                if (isset($_POST["remember"])) {
-                    setcookie("username", $username, time() + (86400 * 30), "/"); 
-                    setcookie("password", $password, time() + (86400 * 30), "/"); 
-                }
-            }
+        if (!empty($message)) {
+            echo "<p>$message</p>";
         }
         ?>
-
     </div>
 </body>
 
