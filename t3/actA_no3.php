@@ -50,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="remember">Remember Me</label>
                 <input type="checkbox" id="remember" name="remember"><br><br>
                 <input type="submit" name="submit" value="Submit">
-                <button type="submit" name="edit">Edit</button>
             </div>
             <?php if (!empty($error)) echo "<p>$error</p>"; ?>
         </form>
