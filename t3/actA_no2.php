@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
 
         $_SESSION['message'] = "Login Successfully!";
     } else {
-        $_SESSION['message'] = "Please enter both username and password.";
+        $_SESSION['message'] = "Enter both username and password.";
     }
 
     header("Location: " . $_SERVER['PHP_SELF']);
