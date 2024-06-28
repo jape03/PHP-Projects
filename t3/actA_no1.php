@@ -68,7 +68,7 @@
                     echo "Email: $email<br>";
                     echo "Contact Number: $contact_number<br>";
                 } else {
-                    echo "Password and Confirm Password are not the same.<br>";
+                    echo "Password and Confirm Password must be the same.<br>";
                 }
             }
         }

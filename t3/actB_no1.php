@@ -2,21 +2,23 @@
 session_start();
 
 $host = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
+$user_db = 'root';
+$pass_db = '';
 
-$conn = new mysqli($host, $dbUser, $dbPass);
+$conn = new mysqli($host, $user_db, $pass_db);
 
 if ($conn->connect_error) {
-    die("Initial connection failed: " . $conn->connect_error);
+    die("Connection failed " . $conn->connect_error);
 }
 
-$dbName = 'registration';
-$createDbQuery = "CREATE DATABASE IF NOT EXISTS $dbName";
-if ($conn->query($createDbQuery) === TRUE) {
-    $conn->select_db($dbName);
+$name_db = 'registration';
 
-    $createTableQuery = "CREATE TABLE IF NOT EXISTS users (
+$create_db = "CREATE DATABASE IF NOT EXISTS $name_db";
+
+if ($conn->query($create_db) === TRUE) {
+    $conn->select_db($name_db);
+
+    $create_table = "CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         first_name VARCHAR(50) NOT NULL,
         middle_name VARCHAR(50),
@@ -28,11 +30,11 @@ if ($conn->query($createDbQuery) === TRUE) {
         contact_number VARCHAR(20) NOT NULL
     )";
 
-    if ($conn->query($createTableQuery) !== TRUE) {
-        die("Error creating table: " . $conn->error);
+    if ($conn->query($create_table) !== TRUE) {
+        die("Error creating table " . $conn->error);
     }
 } else {
-    die("Error creating database: " . $conn->error);
+    die("Error creating database " . $conn->error);
 }
 
 $message = "";
@@ -57,18 +59,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
             if ($stmt->execute()) {
                 $message = "Registration successful!";
             } else {
-                throw new Exception("Database error: " . $stmt->error);
+                throw new Exception("Database error " . $stmt->error);
             }
         } catch (mysqli_sql_exception $e) {
             if ($e->getCode() == 1062) { 
-                $message = "User already exists.";
+                $message = "User already exists! ";
             } else {
                 $message = $e->getMessage();
             }
         }
         $stmt->close();
     } else {
-        $message = "Password and Confirm Password are not the same.";
+        $message = "Password and Confirm Password must be the same.";
     }
 }
 

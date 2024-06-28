@@ -2,34 +2,31 @@
 session_start();
 
 $host = 'localhost';
-$dbUser = 'root';
-$dbPass = '';
-$dbName = 'registration';
+$user_db = 'root';
+$pass_db = '';
+$name_db = 'registration';
 
-$conn = new mysqli($host, $dbUser, $dbPass, $dbName);
+$conn = new mysqli($host, $user_db, $pass_db, $name_db);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed " . $conn->connect_error);
 }
 
 $message = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitted'])) {
     $username = $conn->real_escape_string($_POST["username"]);
-    $password = $conn->real_escape_string($_POST["password"]);
+    $pass = $conn->real_escape_string($_POST["pass"]);
 
-    if (!empty($username) && !empty($password)) {
-      
+    if (!empty($username) && !empty($pass)) {
         $sql = "SELECT * FROM users WHERE username = ? AND pass = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $username, $password);
+        $stmt->bind_param("ss", $username, $pass);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows == 1) {
-           
             $_SESSION['username'] = $username;
-            
             header("Location: actB_no3.php");  
             exit;
         } else {
@@ -48,18 +45,15 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="t3_style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins&display=swap" rel="stylesheet">
-    <title>Login Page</title>
+    <title>No - 2</title>
 </head>
 <body>
     <div class="main">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required><br><br>
             <input type="hidden" name="submitted" value="1">
             <div class="buttons">
                 <input type="submit" value="Submit">
