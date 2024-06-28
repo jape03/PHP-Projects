@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// for comparison
 $static_user = "jypy03";
 $static_pass = "123";
 
