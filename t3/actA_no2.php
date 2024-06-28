@@ -40,12 +40,9 @@
                 $password = htmlspecialchars($_POST["password"]);
 
                 if (isset($_POST["remember"])) {
-                    setcookie("username", $username, time() + (86400 * 30), "/"); // 86400 = 1 day
-                    setcookie("password", $password, time() + (86400 * 30), "/"); // 86400 = 1 day
+                    setcookie("username", $username, time() + (86400 * 30), "/"); 
+                    setcookie("password", $password, time() + (86400 * 30), "/"); 
                 }
-
-                echo "Username: $username<br>";
-                echo "Password: $password<br>";
             }
         }
         ?>
