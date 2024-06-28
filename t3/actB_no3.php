@@ -9,7 +9,7 @@ $name_db = 'registration';
 $conn = new mysqli($host, $user_db, $pass_db, $name_db);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed " . $conn->connect_error);
 }
 
 if (!isset($_SESSION['username'])) {
