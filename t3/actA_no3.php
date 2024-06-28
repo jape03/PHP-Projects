@@ -4,26 +4,30 @@ session_start();
 $static_user = "jypy03";
 $static_pass = "123";
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && !isset($_POST['edit'])) {
     header("Location: home.php"); 
     exit;
 }
 
+$error = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    if (isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    if ($username === $static_user && $password === $static_pass) {
-        $_SESSION['username'] = $username; 
-        header("Location: home.php"); 
-        exit;
-    } else {
-        $error = "Invalid username or password!";
-    }
+        if ($username === $static_user && $password === $static_pass) {
+            $_SESSION['username'] = $username; 
+            header("Location: home.php"); 
+            exit;
+        } else {
+            $error = "Invalid username or password!";
+        }
 
-    if (isset($_POST["remember"]) && $_POST["remember"] === 'on') {
-        setcookie("username", $username, time() + (86400 * 30), "/"); 
-        setcookie("password", $password, time() + (86400 * 30), "/"); 
+        if (isset($_POST["remember"]) && $_POST["remember"] === 'on') {
+            setcookie("username", $username, time() + (86400 * 30), "/"); 
+            setcookie("password", $password, time() + (86400 * 30), "/"); 
+        }
     }
 }
 ?>
@@ -43,16 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required><br><br>
             <div class="buttons">
-                <span>
-                    <label for="remember">Remember Me</label>
-                    <input type="checkbox" id="remember" name="remember"><br><br>
-                </span>
-                <span>
-                    <input type="submit" value="Submit">
-                </span>
-                <span>
-                    <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"><button type="button">Edit</button></a>
-                </span>
+                <label for="remember">Remember Me</label>
+                <input type="checkbox" id="remember" name="remember"><br><br>
+                <input type="submit" name="submit" value="Submit">
+                <button type="submit" name="edit">Edit</button>
             </div>
             <?php if (!empty($error)) echo "<p>$error</p>"; ?>
         </form>
