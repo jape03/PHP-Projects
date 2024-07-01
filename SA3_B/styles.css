@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif; 
+    background-image: url('bgg.jpg'); 
+    background-size: cover;
+    background-position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    max-height: 900px;
+    margin: 20px auto;
+    padding: 50px;
+    background-color: rgba(19, 63, 139, 0.6);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+h2 {
+    color: #ffffff;
+    text-align: center;
+}
+
+p {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: #071542;
+}
+
+label {
+    color: #ffffff;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="tel"] :focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button[type="submit"], .button-link {
+    background-color: rgb(161, 189, 237);
+    color: #071542;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 35px;
+}
+
+button[type="submit"]:hover, .button-link:hover {
+    background-color: #071542;
+    color: #ffffff;
+}
