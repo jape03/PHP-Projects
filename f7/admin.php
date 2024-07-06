@@ -96,8 +96,7 @@ $conn->close();
             </div>
             <div>
                 <a href="login.php">Log-out</a><br>
-                <a href="viewusers.php">View Users</a><br>
-                <a href="admin_add.php">Add User</a>
+                <a href="admin_adduser.php">Add User</a>
             </div>
         </div>
         <div>
@@ -105,8 +104,6 @@ $conn->close();
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload Image" name="submit">
             </form>
-            <?php if (!empty($uploadMessage)) echo "<p>$uploadMessage</p>"; ?>
-            <?php if (!empty($imagePath)) echo "<img src='$imagePath' alt='Uploaded Image' style='max-width: 100%; height: auto; margin-top: 20px;'>"; ?>
         </div>
     </div>
 </body>
