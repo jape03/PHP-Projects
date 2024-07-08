@@ -1,0 +1,246 @@
+body {
+    font-family: "Poppins", arial, sans-serif;
+    color: #fff;
+    background-color: #2f4f2f;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    background: url("iTam.png") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-left: 18px;
+}
+
+.login-form, .create-form {
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 300px;
+    height: 210px;
+    margin-top: 400px;
+}
+
+.create-form {
+    width: 700px;
+    height: 350px;
+    margin-top: 400px;
+}
+
+label {
+    text-align: right;
+    padding: 10px;
+    align-self: center;
+    color: #002B16;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], input[type="email"] select {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: black;
+    font-size: 16px;
+}
+
+.create-form input[type="text"], .create-form input[type="password"] , .create-form select {
+    width: 300px;
+    margin-left: 33px;
+}
+
+form select:focus, input:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+form {
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+button, input[type="submit"] {
+    display: block;
+    width: 150px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: rgba(254, 243, 31, 0.8);
+}
+
+.admin-button {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.admin-button button {
+    font-size: 16px;
+    width: 350px;
+}
+
+.container {
+    background-image: url('BG.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 50px;
+}
+
+.itamreserve-logo {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.itamreserve-logo img {
+    width: 300px;
+    height: 35px;
+}
+
+.admin-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FCD703;
+    margin-left: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+}
+
+.nav-buttons form {
+    margin-left: 10px;
+}
+
+.nav-buttons button {
+    padding: 5px 20px;
+    font-size: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.nav-buttons button:hover {
+    background-color: rgba(254, 243, 31, 0.8);
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    width: calc(65% - 10px);
+}
+
+.form-section, .record-section {
+    background-color: #C2D4C3;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+.form-section {
+    margin-right: 10px;
+}
+
+.record-section {
+    margin-left: 10px;
+}
+
+input[type="file"] {
+    padding: 0;
+}
+
+button[type="submit"] {
+    padding: 5px;
+    font-size: 12px;
+    background-color: #002B16;
+    width: 100px;
+    align-self: center;
+}
+
+button[type="submit"]:hover {
+    background-color: rgba(254, 243, 31, 0.8);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: #002B16;
+    color: white;
+    text-align: center;
+    border: 1px solid #ccc;
+}
