@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user_level'])) {
-    if ($_SESSION['user_level'] == 'Admin') {
+if (isset($_SESSION['access_level'])) {
+    if ($_SESSION['access_level'] == 'Admin') {
         header("Location: Admin.php");
-    } elseif ($_SESSION['user_level'] == 'Student') {
+    } elseif ($_SESSION['access_level'] == 'Student') {
         header("Location: Student.php");
     } else {
         header("Location: Start.php");
