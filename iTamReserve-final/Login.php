@@ -16,19 +16,26 @@
                 <input type="text" name="user_id" placeholder="User ID"><br>
                 <input type="password" name="password" placeholder="Password"><br>
                 <button type="submit" name="action" value="Login">Login</button>
+                <button type="submit" name="action" value="Back">Back</button>   
             </form>
         </div>
     </div>
 
+
     <?php
     session_start(); // Start the session at the beginning of the script
-
+    
+    if ($_POST['action'] === 'Back') {
+        header('Location: Start.php');
+        exit;
+    }
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'Login') {
         // Database connection
         $conn = mysqli_connect('localhost', 'root', '', 'iTamReserve'); // Change credentials accordingly
         if (!$conn) {
             die('Connection failed: ' . mysqli_connect_error());
-        }
+        }   
 
         // Escape user inputs for security
         $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);

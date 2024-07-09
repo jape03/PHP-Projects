@@ -1,10 +1,23 @@
+<?php
+session_start();
+
+// Check if invoice data is available in session
+if (!isset($_SESSION['invoice'])) {
+    header("Location: home_redirect.php");
+    exit();
+}
+
+// Get invoice data from session
+$invoiceData = $_SESSION['invoice'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Invoice</title>
+    <title>Event Reservation Invoice</title>
     <link rel="stylesheet" href="invoice.css">
 </head>
 
@@ -14,14 +27,14 @@
             <div class="logo">
                 <img src="logo.png" alt="Logo">
                 <div class="admin-name">
-                    Name of Admin/Student <!-- from database -->
+                    <?php echo htmlspecialchars($_SESSION['full_name']); ?>
                 </div>
             </div>
             <div class="itamreserve-logo">
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Admin.php" method="POST"> <!-- depends if student or admin yung logged -->
+                <form action="Admin.php" method="POST">
                     <button type="submit" class="home">Home</button>
                 </form>
             </div>
@@ -31,19 +44,10 @@
                 <div class="invoice">
                     <h1>INVOICE</h1>
                     <div class="details">
-                        <p><strong>Name:</strong></p>
-                        <p><strong>Department/Program:</strong></p>
-                        <p><strong>Email Address:</strong></p>
-                        <p><strong>Contact Number:</strong></p>
-                        <p><strong>Event Name:</strong></p>
-                        <p><strong>Location:</strong></p>
-                        <p><strong>Date of Event:</strong></p>
-                        <p><strong>Time of Event:</strong></p>
-                        <p><strong>Purpose of Reservation:</strong></p>
-                        <p><strong>ID Picture:</strong></p>
-                        <div class="id-picture">
-                            <img src="path_to_id_picture.png" alt="ID Picture">
-                        </div>
+                        <p><strong>Event Name:</strong> <?php echo htmlspecialchars($invoiceData['eventName']); ?></p>
+                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($invoiceData['dateOfEvent']); ?></p>
+                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($invoiceData['startOfEvent']); ?></p>
+                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($invoiceData['endOfEvent']); ?></p>
                     </div>
                     <div class="nav-buttons">
                         <form action="Start.php" method="POST">

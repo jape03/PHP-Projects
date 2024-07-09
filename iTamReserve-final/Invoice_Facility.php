@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Check if invoice data is available in session
+if (!isset($_SESSION['invoice'])) {
+    header("Location: home_redirect.php");
+    exit();
+}
+
+// Get invoice data from session
+$invoiceData = $_SESSION['invoice'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +27,14 @@
             <div class="logo">
                 <img src="logo.png" alt="Logo">
                 <div class="admin-name">
-                    Name of Admin/Student <!-- from database -->
+                    <?php echo htmlspecialchars($_SESSION['full_name']); ?>
                 </div>
             </div>
             <div class="itamreserve-logo">
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Admin.php" method="POST"> <!-- depends if student or admin yung logged -->
+                <form action="home_redirect.php" method="POST">
                     <button type="submit" class="home">Home</button>
                 </form>
             </div>
@@ -31,17 +44,17 @@
                 <div class="invoice">
                     <h1>INVOICE</h1>
                     <div class="details">
-                        <p><strong>Name:</strong></p>
-                        <p><strong>Department/Program:</strong></p>
-                        <p><strong>Email Address:</strong></p>
-                        <p><strong>Contact Number:</strong></p>
-                        <p><strong>Facility:</strong></p>
-                        <p><strong>Date of Reservation:</strong></p>
-                        <p><strong>Time Slot:</strong></p>
-                        <p><strong>Purpose of Reservation:</strong></p>
+                        <p><strong>Name:</strong> <?php echo htmlspecialchars($invoiceData['firstName'] . ' ' . $invoiceData['lastName']); ?></p>
+                        <p><strong>Department/Program:</strong> <?php echo htmlspecialchars($invoiceData['department']); ?></p>
+                        <p><strong>Email Address:</strong> <?php echo htmlspecialchars($invoiceData['email']); ?></p>
+                        <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($invoiceData['contactNumber']); ?></p>
+                        <p><strong>Facility:</strong> <?php echo htmlspecialchars($invoiceData['facility']); ?></p>
+                        <p><strong>Date of Reservation:</strong> <?php echo htmlspecialchars($invoiceData['reservationDate']); ?></p>
+                        <p><strong>Time Slot:</strong> <?php echo htmlspecialchars($invoiceData['startTime'] . ' - ' . $invoiceData['endTime']); ?></p>
+                        <p><strong>Purpose of Reservation:</strong> <?php echo htmlspecialchars($invoiceData['purpose']); ?></p>
                         <p><strong>ID Picture:</strong></p>
                         <div class="id-picture">
-                            <img src="path_to_id_picture.png" alt="ID Picture">
+                            <img src="<?php echo htmlspecialchars($invoiceData['idPicture']); ?>" alt="ID Picture">
                         </div>
                     </div>
                     <div class="nav-buttons">

@@ -1,10 +1,35 @@
+<?php
+session_start();
+
+// Check if invoice data is available in session
+if (!isset($_SESSION['invoice'])) {
+    header("Location: home_redirect.php");
+    exit();
+}
+
+// Get invoice data from session
+$invoiceData = $_SESSION['invoice'];
+
+// Fetch event details from the database
+$conn = mysqli_connect('localhost', 'root', '', 'iTamReserve'); // Change 'root' and password accordingly
+if (!$conn) {
+    die('Connection failed: ' . mysqli_connect_error());
+}
+
+$eventId = $invoiceData['eventId'];
+$eventDetails = mysqli_query($conn, "SELECT event_name, date_of_event, start_of_event, end_of_event FROM events WHERE id='$eventId'");
+$event = mysqli_fetch_assoc($eventDetails);
+
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Invoice</title>
+    <title>Join Event Invoice</title>
     <link rel="stylesheet" href="invoice.css">
 </head>
 
@@ -13,15 +38,15 @@
         <header>
             <div class="logo">
                 <img src="logo.png" alt="Logo">
-                <div class="student-name"> <!-- admin-name or student-name -->
-                    Name of Student <!-- from database -->
+                <div class="user-name">
+                    <?php echo htmlspecialchars($_SESSION['full_name']); ?>
                 </div>
             </div>
             <div class="itamreserve-logo">
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Student.php" method="POST"> <!-- depends if student or admin yung logged -->
+                <form action="Student.php" method="POST">
                     <button type="submit" class="home">Home</button>
                 </form>
             </div>
@@ -31,14 +56,14 @@
                 <div class="invoice">
                     <h1>INVOICE</h1>
                     <div class="details">
-                        <p><strong>Name:</strong></p>
-                        <p><strong>Department/Program:</strong></p>
-                        <p><strong>Email Address:</strong></p>
-                        <p><strong>Contact Number:</strong></p>
-                        <p><strong>Event Name:</strong></p> <!-- galing dun sa db ng pinili niyang event -->
-                        <p><strong>Location:</strong></p> <!-- galing dun sa db ng pinili niyang event -->
-                        <p><strong>Date of Event:</strong></p> <!-- galing dun sa db ng pinili niyang event -->
-                        <p><strong>Time of Event:</strong></p> <!-- galing dun sa db ng pinili niyang event -->
+                        <p><strong>Name:</strong> <?php echo htmlspecialchars($invoiceData['firstName'] . ' ' . $invoiceData['lastName']); ?></p>
+                        <p><strong>Department/Program:</strong> <?php echo htmlspecialchars($invoiceData['department']); ?></p>
+                        <p><strong>Email Address:</strong> <?php echo htmlspecialchars($invoiceData['email']); ?></p>
+                        <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($invoiceData['contactNumber']); ?></p>
+                        <p><strong>Event Name:</strong> <?php echo htmlspecialchars($event['event_name']); ?></p>
+                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($event['date_of_event']); ?></p>
+                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($event['start_of_event']); ?></p>
+                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($event['end_of_event']); ?></p>
                     </div>
                     <div class="nav-buttons">
                         <form action="Start.php" method="POST">
