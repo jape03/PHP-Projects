@@ -133,7 +133,7 @@ function formatDate($date) {
                 <form action="Start.php" method="POST">
                     <button type="submit" class="logout">Logout</button>
                 </form>
-                <form action="student.php" method="POST">
+                <form action="Student.php" method="POST">
                     <button type="submit" class="home">Home</button>
                 </form>
             </div>
