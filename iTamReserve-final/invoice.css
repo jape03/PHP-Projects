@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", arial, sans-serif;
+}
+
+body {
+  font-family: "Poppins", arial, sans-serif;
+  background-color: #2f4f2f;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: url("iTam.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h2 {
+  color: white;
+  margin-left: 18px;
+  font-size: 20px;
+}
+
+label {
+  text-align: right;
+  padding: 10px;
+  align-self: center;
+}
+
+form {
+  font-family: "Poppins", arial, sans-serif;
+}
+
+.container {
+  background-image: url("BG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.logo img {
+  width: 40px;
+  height: 50px;
+}
+
+.itamreserve-logo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.itamreserve-logo img {
+  width: 300px;
+  height: 35px;
+}
+
+.admin-name,
+.student-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fcd703;
+  margin-left: 20px;
+}
+
+form button {
+  font-family: "Poppins", arial, sans-serif;
+  display: block;
+  width: 100px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  margin: 10px auto;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: rgba(254, 243, 31, 0.8);
+}
+
+.nav-buttons {
+  display: flex;
+}
+
+.nav-buttons form {
+  margin: auto;
+}
+
+.nav-buttons button {
+  padding: 5px 20px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  font-size: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-buttons button.home {
+  background-color: #002b16;
+  margin-right: 20px;
+}
+
+.nav-buttons button.logout {
+  background-color: #002b16;
+}
+
+.nav-buttons button.home:hover,
+.nav-buttons button.logout:hover {
+  background-color: rgba(254, 243, 31, 0.8);
+}
+
+.main-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.invoice {
+  background-color: #c2d4c3;
+  padding: 20px;
+  border-radius: 10px;
+  width: 500px;
+  max-width: 800px;
+}
+
+.invoice h1 {
+  text-align: center;
+  color: #002b16;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 2px solid #002b16;
+  padding-bottom: 10px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin-bottom: 10px;
+  color: #002b16;
+}
+
+.details strong {
+  color: #002b16;
+}
+
+.id-picture img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
