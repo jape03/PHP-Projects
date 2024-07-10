@@ -24,6 +24,7 @@
                 <h1>Hello, <?php echo $_SESSION['full_name']; ?>!</h1>
                 <button type="submit" name="action" value="Reserve Facility">Reserve Facility</button>
                 <button type="submit" name="action" value="Borrow Equipment">Borrow Equipment</button>
+                <button type="submit" name="action" value="Return Equipment">Return Equipment</button>
                 <button type="submit" name="action" value="Create Event">Create Event</button>
                 <button type="submit" name="action" value="Logout">Logout</button>
             </form>
@@ -35,6 +36,9 @@
         switch ($_POST['action']) {
             case 'Reserve Facility':
                 header('Location: Admin_Facility.php');
+                exit;
+            case 'Return Equipment':
+                header('Location: Admin_Return.php');
                 exit;
             case 'Borrow Equipment':
                 header('Location: Admin_Equipment.php');

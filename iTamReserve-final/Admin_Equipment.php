@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Function to create database and table if they do not exist
 function createDatabaseAndTable($conn)
 {
     $dbName = 'iTamReserve';
@@ -23,16 +22,14 @@ function createDatabaseAndTable($conn)
     }
 }
 
-// Connect to the database
-$conn = mysqli_connect('localhost', 'root', '', 'iTamReserve'); // Change 'root' and password accordingly
+$conn = mysqli_connect('localhost', 'root', '', 'iTamReserve'); 
 if (!$conn) {
     die('Connection failed: ' . mysqli_connect_error());
 }
 
-// Create database and table if they do not exist
 createDatabaseAndTable($conn);
 
-// Handle form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape user inputs for security
     $firstName = mysqli_real_escape_string($conn, $_POST['first-name']);
@@ -84,13 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: Invoice_Equipment.php");
                 exit();
             } else {
-                echo "ERROR: Could not execute $sql. " . mysqli_error($conn);
+                echo "<div class='error-message'>ERROR: Could not execute $sql. </div>" . mysqli_error($conn);
             }
         } else {
-            echo "<p>Not enough available quantity for $equipment.</p>";
+            echo "<div class='error-message'><p>Not enough available quantity for $equipment.</p></div>";
         }
     } else {
-        echo "<p>Equipment not found.</p>";
+        echo "<div class='error-message'><p>Equipment not found.</p></div>";
     }
 
     // Close connection

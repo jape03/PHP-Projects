@@ -38,6 +38,20 @@ function createDatabaseAndTable($conn)
 
 createDatabaseAndTable($conn);
 
+// Handle delete request
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_reservation'])) {
+    $deleteId = (int) $_POST['delete_id'];
+    $deleteQuery = "DELETE FROM facility_reservations WHERE id=$deleteId";
+
+    if (mysqli_query($conn, $deleteQuery)) {
+        // Redirect to current page to avoid resubmission
+        header("Location: {$_SERVER['REQUEST_URI']}");
+        exit();
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+}
+
 // Handle form submission
 $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -94,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Fetch reservation records from the database
-$reservationRecords = mysqli_query($conn, "SELECT facility, reservation_date, start_time, end_time FROM facility_reservations");
+$reservationRecords = mysqli_query($conn, "SELECT id, facility, reservation_date, start_time, end_time FROM facility_reservations");
 
 mysqli_close($conn);
 
@@ -118,9 +132,13 @@ function formatDate($date)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Facility Reservation</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
+    <?php if (!empty($error_message)) : ?>
+        <div class="error-message"><?php echo $error_message; ?></div>
+    <?php endif; ?>
     <div class="container">
         <header>
             <div class="logo">
@@ -142,9 +160,6 @@ function formatDate($date)
             </div>
         </header>
         <div class="main-content">
-            <?php if (!empty($error_message)) : ?>
-                <div class="error-message"><?php echo $error_message; ?></div>
-            <?php endif; ?>
             <div class="form-section">
                 <h2>Facility Reservation Form</h2>
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -187,13 +202,14 @@ function formatDate($date)
                 </form>
             </div>
             <div class="record-section">
-                <h2>Reservation Record</h2>
+                <h2>Reservation Records</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Facility</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -205,17 +221,22 @@ function formatDate($date)
                                 $formattedStartTime = formatTime($row['start_time']);
                                 $formattedEndTime = formatTime($row['end_time']);
                                 echo "<tr>
-                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['facility']) . "</td>
-                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedDate) . "</td>
-                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td>
-                  </tr>";
+                                        <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['facility']) . "</td>
+                                        <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedDate) . "</td>
+                                        <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td>
+                                        <td style='text-align: center;'>
+                                            <form action='' method='POST'>
+                                                <input type='hidden' name='delete_id' value='" . $row['id'] . "'>
+                                                <button type='submit' name='delete' class='delete-icon' onclick='return confirm(\"Are you sure you want to delete this event?\");'><i class='fas fa-trash-alt'></i></button>
+                                            </form>
+                                        </td>
+                                      </tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='3' style='color: #002b16; text-align: center;'>No records found</td></tr>";
+                            echo "<tr><td colspan='4' style='color: #002b16; text-align: center;'>No records found</td></tr>";
                         }
                         ?>
                     </tbody>
-
                 </table>
             </div>
         </div>

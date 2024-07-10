@@ -87,8 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("Location: Invoice_Facility.php");
             exit();
-        } else {
-            $error_message = "ERROR: Could not execute $sql. " . mysqli_error($conn);
         }
     }
 }
@@ -121,6 +119,9 @@ function formatDate($date)
 </head>
 
 <body>
+    <?php if (!empty($error_message)) : ?>
+        <div class="error-message"><?php echo $error_message; ?></div>
+    <?php endif; ?>
     <div class="container">
         <header>
             <div class="logo">
@@ -142,9 +143,6 @@ function formatDate($date)
             </div>
         </header>
         <div class="main-content">
-            <?php if (!empty($error_message)) : ?>
-                <div class="error-message"><?php echo $error_message; ?></div>
-            <?php endif; ?>
             <div class="form-section">
                 <h2>Facility Reservation Form</h2>
                 <form action="" method="POST" enctype="multipart/form-data">

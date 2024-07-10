@@ -247,7 +247,7 @@ h1 {
   background-color: #c2d4c3;
   padding: 20px;
   border-radius: 10px;
-  width: 600px;
+  width: 700px;
 }
 
 .form-section {
@@ -312,7 +312,7 @@ button[type="submit"]:hover {
 }
 
 table {
-  width: 100%;
+  width: 650px;
   border-collapse: collapse;
 }
 
@@ -358,4 +358,25 @@ th {
 
 .admin-button button:hover {
   background-color: rgba(254, 243, 31, 0.8);
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+.success-message {
+  color: green;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.delete-icon {
+  background-color: #002b16 !important;
+  cursor: pointer;
+  width: 35px !important;
+}
+
+.delete-icon:hover {
+  background-color: #e50914 !important;
+  width: 35px !important;
 }

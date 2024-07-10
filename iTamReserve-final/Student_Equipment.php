@@ -84,13 +84,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: Invoice_Equipment.php");
                 exit();
             } else {
-                echo "ERROR: Could not execute $sql. " . mysqli_error($conn);
+                echo "<div class='error-message'>ERROR: Could not execute $sql. </div>" . mysqli_error($conn);
             }
         } else {
-            echo "<p>Not enough available quantity for $equipment.</p>";
+            echo "<div class='error-message'><p>Not enough available quantity for $equipment.</p></div>";
         }
     } else {
-        echo "<p>Equipment not found.</p>";
+        echo "<div class='error-message'><p>Equipment not found.</p></div>";
     }
 
     // Close connection
@@ -128,6 +128,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="submit" class="logout">Logout</button>
                 </form>
             </div>
+            <?php
+            // Display error messages here
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (isset($error_message)) {
+                    echo "<div class='error-message'>$error_message</div>";
+                }
+            }
+            ?>
         </header>
         <div class="main-content">
             <div class="form-section">
@@ -202,7 +210,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         mysqli_close($conn);
                         ?>
                     </tbody>
-
                 </table>
             </div>
         </div>

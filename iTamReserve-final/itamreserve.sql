@@ -59,4 +59,3 @@ CREATE TABLE IF NOT EXISTS facility_reservations (
     purpose VARCHAR(255),
     id_picture VARCHAR(255)
 );
-
