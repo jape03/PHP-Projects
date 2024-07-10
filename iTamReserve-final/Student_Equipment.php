@@ -2,7 +2,8 @@
 session_start();
 
 // Function to create database and table if they do not exist
-function createDatabaseAndTable($conn) {
+function createDatabaseAndTable($conn)
+{
     $dbName = 'iTamReserve';
     $createDbQuery = "CREATE DATABASE IF NOT EXISTS $dbName";
     if (mysqli_query($conn, $createDbQuery)) {
@@ -120,11 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Start.php" method="POST">
-                    <button type="submit" class="logout">Logout</button>
-                </form>
                 <form action="Student.php" method="POST">
                     <button type="submit" class="home">Home</button>
+                </form>
+                <form action="Start.php" method="POST">
+                    <button type="submit" class="logout">Logout</button>
                 </form>
             </div>
         </header>
@@ -192,15 +193,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $result = mysqli_query($conn, "SELECT name, available_quantity FROM equipment");
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<tr><td>" . htmlspecialchars($row['name']) . "</td><td>" . htmlspecialchars($row['available_quantity']) . "</td></tr>";
+                                echo "<tr><td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['name']) . "</td><td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['available_quantity']) . "</td></tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='2'>No records found</td></tr>";
+                            echo "<tr><td colspan='2' style='color: #002b16; text-align: center;'>No records found</td></tr>";
                         }
 
                         mysqli_close($conn);
                         ?>
                     </tbody>
+
                 </table>
             </div>
         </div>

@@ -9,6 +9,11 @@ if (!isset($_SESSION['invoice'])) {
 
 // Get invoice data from session
 $invoiceData = $_SESSION['invoice'];
+
+// Format date and time
+$eventDate = date("m-d-Y", strtotime($invoiceData['dateOfEvent']));
+$startTime = date("g:i A", strtotime($invoiceData['startOfEvent']));
+$endTime = date("g:i A", strtotime($invoiceData['endOfEvent']));
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +50,9 @@ $invoiceData = $_SESSION['invoice'];
                     <h1>INVOICE</h1>
                     <div class="details">
                         <p><strong>Event Name:</strong> <?php echo htmlspecialchars($invoiceData['eventName']); ?></p>
-                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($invoiceData['dateOfEvent']); ?></p>
-                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($invoiceData['startOfEvent']); ?></p>
-                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($invoiceData['endOfEvent']); ?></p>
+                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($eventDate); ?></p>
+                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($startTime); ?></p>
+                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($endTime); ?></p>
                     </div>
                     <div class="nav-buttons">
                         <form action="Start.php" method="POST">

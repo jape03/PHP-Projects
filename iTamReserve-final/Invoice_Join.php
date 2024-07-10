@@ -21,6 +21,11 @@ $eventDetails = mysqli_query($conn, "SELECT event_name, date_of_event, start_of_
 $event = mysqli_fetch_assoc($eventDetails);
 
 mysqli_close($conn);
+
+// Format date and time
+$eventDate = date("m-d-Y", strtotime($event['date_of_event']));
+$startTime = date("g:i A", strtotime($event['start_of_event']));
+$endTime = date("g:i A", strtotime($event['end_of_event']));
 ?>
 
 <!DOCTYPE html>
@@ -61,9 +66,9 @@ mysqli_close($conn);
                         <p><strong>Email Address:</strong> <?php echo htmlspecialchars($invoiceData['email']); ?></p>
                         <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($invoiceData['contactNumber']); ?></p>
                         <p><strong>Event Name:</strong> <?php echo htmlspecialchars($event['event_name']); ?></p>
-                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($event['date_of_event']); ?></p>
-                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($event['start_of_event']); ?></p>
-                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($event['end_of_event']); ?></p>
+                        <p><strong>Date of Event:</strong> <?php echo htmlspecialchars($eventDate); ?></p>
+                        <p><strong>Start of Event:</strong> <?php echo htmlspecialchars($startTime); ?></p>
+                        <p><strong>End of Event:</strong> <?php echo htmlspecialchars($endTime); ?></p>
                     </div>
                     <div class="nav-buttons">
                         <form action="Start.php" method="POST">

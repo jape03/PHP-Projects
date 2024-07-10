@@ -56,8 +56,8 @@ $invoiceData = $_SESSION['invoice'];
                         <p><strong>Return Time:</strong> <?php echo htmlspecialchars($invoiceData['returnTime']); ?></p>
                         <p><strong>Purpose of Reservation:</strong> <?php echo htmlspecialchars($invoiceData['purpose']); ?></p>
                         <p><strong>ID Picture:</strong></p>
-                        <div class="id-picture">
-                            <img src="<?php echo htmlspecialchars($invoiceData['idPicture']); ?>" alt="ID Picture">
+                        <div class="id-picture" style="text-align: center;">
+                            <img src="<?php echo htmlspecialchars($invoiceData['idPicture']); ?>" alt="ID Picture" style="display: inline-block;">
                         </div>
                     </div>
                     <div class="nav-buttons">

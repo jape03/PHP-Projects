@@ -8,7 +8,8 @@ if (!$conn) {
 }
 
 // Create database and table if they do not exist
-function createDatabaseAndTable($conn) {
+function createDatabaseAndTable($conn)
+{
     $dbName = 'iTamReserve';
     $createDbQuery = "CREATE DATABASE IF NOT EXISTS $dbName";
     if (mysqli_query($conn, $createDbQuery)) {
@@ -98,12 +99,14 @@ $reservationRecords = mysqli_query($conn, "SELECT facility, reservation_date, st
 mysqli_close($conn);
 
 // Function to format time in 12-hour format
-function formatTime($time) {
+function formatTime($time)
+{
     return date("g:i A", strtotime($time));
 }
 
 // Function to format date in MM-DD-YYYY format
-function formatDate($date) {
+function formatDate($date)
+{
     return date("m-d-Y", strtotime($date));
 }
 ?>
@@ -130,16 +133,16 @@ function formatDate($date) {
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Start.php" method="POST">
-                    <button type="submit" class="logout">Logout</button>
-                </form>
                 <form action="Student.php" method="POST">
                     <button type="submit" class="home">Home</button>
+                </form>
+                <form action="Start.php" method="POST">
+                    <button type="submit" class="logout">Logout</button>
                 </form>
             </div>
         </header>
         <div class="main-content">
-            <?php if (!empty($error_message)): ?>
+            <?php if (!empty($error_message)) : ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
             <div class="form-section">
@@ -201,10 +204,14 @@ function formatDate($date) {
                                 $formattedDate = formatDate($row['reservation_date']);
                                 $formattedStartTime = formatTime($row['start_time']);
                                 $formattedEndTime = formatTime($row['end_time']);
-                                echo "<tr><td>" . htmlspecialchars($row['facility']) . "</td><td>" . htmlspecialchars($formattedDate) . "</td><td>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td></tr>";
+                                echo "<tr>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['facility']) . "</td>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedDate) . "</td>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td>
+                  </tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='3'>No records found</td></tr>";
+                            echo "<tr><td colspan='3' style='color: #002b16; text-align: center;'>No records found</td></tr>";
                         }
                         ?>
                     </tbody>

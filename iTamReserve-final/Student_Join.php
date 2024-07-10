@@ -42,12 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['event'])) {
 $eventRecords = mysqli_query($conn, "SELECT id, event_name, date_of_event, start_of_event, end_of_event, number_of_participants FROM events");
 
 // Function to format time in 12-hour format
-function formatTime($time) {
+function formatTime($time)
+{
     return date("g:i A", strtotime($time));
 }
 
 // Function to format date in MM-DD-YYYY format
-function formatDate($date) {
+function formatDate($date)
+{
     return date("m-d-Y", strtotime($date));
 }
 
@@ -76,16 +78,16 @@ mysqli_close($conn);
                 <img src="iTamReservelogo.png" alt="itamreserve-logo">
             </div>
             <div class="nav-buttons">
-                <form action="Start.php" method="POST">
-                    <button type="submit" class="logout">Logout</button>
-                </form>
                 <form action="Student.php" method="POST">
                     <button type="submit" class="home">Home</button>
+                </form>
+                <form action="Start.php" method="POST">
+                    <button type="submit" class="logout">Logout</button>
                 </form>
             </div>
         </header>
         <div class="main-content">
-            <?php if (!empty($error_message)): ?>
+            <?php if (!empty($error_message)) : ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
             <?php endif; ?>
             <div class="form-section">
@@ -141,14 +143,14 @@ mysqli_close($conn);
                                 $formattedStartTime = formatTime($row['start_of_event']);
                                 $formattedEndTime = formatTime($row['end_of_event']);
                                 echo "<tr>
-                                        <td>" . htmlspecialchars($row['event_name']) . "</td>
-                                        <td>" . htmlspecialchars($formattedDate) . "</td>
-                                        <td>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td>
-                                        <td>" . htmlspecialchars($row['number_of_participants']) . "</td>
-                                      </tr>";
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['event_name']) . "</td>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedDate) . "</td>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($formattedStartTime . ' - ' . $formattedEndTime) . "</td>
+                    <td style='color: #002b16; text-align: center;'>" . htmlspecialchars($row['number_of_participants']) . "</td>
+                  </tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='4'>No records found</td></tr>";
+                            echo "<tr><td colspan='4' style='color: #002b16; text-align: center;'>No records found</td></tr>";
                         }
                         ?>
                     </tbody>
